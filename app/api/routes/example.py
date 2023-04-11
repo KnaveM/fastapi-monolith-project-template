@@ -1,10 +1,14 @@
 # app/api/routes/example_route.py
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
+
+from app.core.rate_limit import limiter
 
 router = APIRouter()
 
+
 @router.get("/")
-async def index():
+@limiter.limit("5/minute")
+async def index(request: Request):
     return {"message": "Hello, this is the index route!"}
 
 @router.get("/example")
