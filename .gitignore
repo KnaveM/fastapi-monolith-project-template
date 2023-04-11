@@ -34,3 +34,6 @@ junit.xml
 
 # db
 *.db
+
+# vscode
+.vscode/
