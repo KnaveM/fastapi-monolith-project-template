@@ -7,7 +7,7 @@ from starlette.requests import Request
 
 from app.api.utils import rate_limit_exceeded
 
-limiter = Limiter(key_func=get_remote_address)
+limiter = Limiter(key_func=get_remote_address, headers_enabled=True)
 
 def rate_limit_exceeded_handler(request: Request, exc: RateLimitExceeded) -> Response:
     """

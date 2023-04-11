@@ -3,6 +3,9 @@ from fastapi import FastAPI
 from debug_toolbar.middleware import DebugToolbarMiddleware
 import logging
 from slowapi.errors import RateLimitExceeded
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
+from redis import asyncio as aioredis
 
 from app.core.config import settings
 from app.core.logging import setup_logging
@@ -26,3 +29,8 @@ app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)
 
 app.include_router(websocket_route.router)
 app.include_router(example_route.router)
+
+@app.on_event("startup")
+async def startup():
+    redis_client = aioredis.from_url(settings.REDIS_URL, encoding="utf8", decode_responses=True)
+    FastAPICache.init(RedisBackend(redis_client), prefix="fastapi-cache")
