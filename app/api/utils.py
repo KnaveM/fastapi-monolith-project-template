@@ -18,3 +18,10 @@ rate_limit_exceeded = {
     'data': ''
 }
 
+host_not_allowed = {
+    'error': 'Host not allowed',
+    'msg': 'Host not allowed',
+    'code': -3,
+    'data': ''
+}
+

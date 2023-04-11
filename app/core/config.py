@@ -7,6 +7,17 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///./test.db"
     DEBUG: bool = True
     REDIS_URL: str = "redis://default:password@localhost:6379"
+    ORIGINS: list = [  # CORS
+        # "*"
+        "http://localhost",
+        "http://localhost:8000",
+    ]
+    ALLOWED_HOSTS: list = [
+        'localhost',
+        'localhost:8000',
+        '127.0.0.1',
+        '127.0.0.1:8000'
+    ]
 
     class Config:
         env_file = ".env"

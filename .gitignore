@@ -37,3 +37,7 @@ junit.xml
 
 # vscode
 .vscode/
+
+
+# macos
+.DS_Store
