@@ -1,0 +1,36 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+venv/
+*.egg-info/
+
+# Test files
+.tox/
+.coverage
+.pytest_cache/
+.pytest_cache/
+.cache/
+htmlcov/
+.nox/
+coverage.xml
+junit.xml
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# db
+*.db
